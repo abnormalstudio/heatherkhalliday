@@ -1,8 +1,20 @@
-import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
-import { Grid } from './styles'
-import Layout from '../components/Layout'
-import ProjectTile from '../components/ProjectTile'
+import { graphql, StaticQuery } from "gatsby"
+import React from "react"
+
+import Layout from "../components/Layout"
+import ProjectTile from "../components/ProjectTile"
+import { ProjectInterface } from "../declarations"
+import { Grid } from "./styles"
+
+interface IndexProps {
+  allContentfulProject: {
+    edges: [
+      {
+        node: ProjectInterface
+      }
+    ]
+  }
+}
 
 const Index = () => {
   return (
@@ -27,7 +39,7 @@ const Index = () => {
           }
         }
       `}
-      render={data => (
+      render={(data: IndexProps) => (
         <Layout>
           <Grid>
             {data.allContentfulProject.edges.reverse().map(edge => (

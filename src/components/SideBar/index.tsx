@@ -1,15 +1,15 @@
-import React from 'react'
+import React from "react"
 
 import {
   Aside,
-  Name,
-  Line,
   Lastname,
-  Navigation,
-  Navlist,
+  Line,
   Listitem,
+  Name,
+  Navigation,
   Navlink,
-} from './styles'
+  Navlist
+} from "./styles"
 
 const SideBar = () => (
   <Aside>

@@ -1,17 +1,26 @@
-import React from 'react'
-import Layout from '../../components/Layout'
+import React from "react"
+import Layout from "../../components/Layout"
+import { ProjectInterface } from "../../declarations"
 import {
+  Description,
   LinkContainer,
   ProjectImage,
-  ProjectTitle,
-  Description,
   ProjectLink,
-} from './styles'
+  ProjectTitle
+} from "./styles"
 
-class Project extends React.Component {
+interface ProjectProps {
+  pathContext: {
+    prev: string
+    next: string
+    project: ProjectInterface
+  }
+}
+
+class Project extends React.Component<ProjectProps, {}> {
   render() {
     const { project, next, prev } = this.props.pathContext
-    const paras = project.description.description.split('\n')
+    const paras = project.description.description.split("\n")
 
     return (
       <Layout>

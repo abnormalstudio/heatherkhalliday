@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import Link from 'gatsby-link'
+import Link from "gatsby-link"
+import styled from "styled-components"
 
 const LinkContainer = styled.div`
   text-align: right;
@@ -25,14 +25,14 @@ const ProjectImage = styled.img`
 
 const ProjectTitle = styled.h1`
   font-size: 2rem;
-  font-family: 'Fjalla One', sans-serif;
+  font-family: "Fjalla One", sans-serif;
   margin: 50px;
   text-align: center;
 `
 
 const Description = styled.p`
   font-size: 1.3rem;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   line-height: 2.8rem;
   padding: 0 10%;
   margin: 50px;
@@ -45,7 +45,7 @@ const Description = styled.p`
 
 const ProjectLink = styled(Link)`
   text-decoration: none;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   margin: 20px;
   color: #e0474c;
   font-weight: bolder;

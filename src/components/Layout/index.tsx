@@ -1,15 +1,18 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
+import { graphql, StaticQuery } from "gatsby"
+import React from "react"
+import Helmet from "react-helmet"
 
-import SideBar from '../SideBar'
-import { OuterContainer, Main } from './styles'
+import SideBar from "../SideBar"
+import { Main, OuterContainer } from "./styles"
 
-import './generic/reset.css'
-import './generic/index.css'
+import "./generic/index.css"
+import "./generic/reset.css"
 
-const Layout = ({ children }) => (
+interface LayoutProps {
+  children: React.ReactNode
+}
+
+const Layout = (props: LayoutProps) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -33,14 +36,10 @@ const Layout = ({ children }) => (
           />
         </Helmet>
         <SideBar />
-        <Main>{children}</Main>
+        <Main>{props.children}</Main>
       </OuterContainer>
     )}
   />
 )
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-}
 
 export default Layout

@@ -1,8 +1,14 @@
-const path = require('path')
-const { slugify } = require('./src/utils')
+const path = require("path")
 
-exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators
+const slugify = str => {
+  return str
+    .replace(/\s+/g, "-")
+    .toLowerCase()
+    .replace(/[^a-z-]/g, "")
+}
+
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
 
   return new Promise((resolve, reject) => {
     graphql(`
@@ -40,12 +46,12 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
         createPage({
           path: slugify(node.name),
-          component: path.resolve('./src/templates/Project/index.js'),
+          component: path.resolve("./src/templates/Project/index.tsx"),
           context: {
             project: node,
             next: slugify(nextProject.node.name),
-            prev: slugify(prevProject.node.name),
-          },
+            prev: slugify(prevProject.node.name)
+          }
         })
       })
       resolve()

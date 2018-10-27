@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components"
 
 const Grid = styled.div`
   padding: 2rem;
@@ -22,14 +22,14 @@ const Container = styled.div`
 
 const Heading = styled.h1`
   font-size: 2.5rem;
-  font-family: 'Fjalla One', sans-serif;
+  font-family: "Fjalla One", sans-serif;
   margin: 50px;
   text-align: center;
 `
 
 const Text = styled.p`
   font-size: 1.3rem;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   line-height: 2.8rem;
   padding: 0 10%;
   margin: 50px;

@@ -3,6 +3,7 @@ module.exports = {
     title: 'Heather Halliday',
   },
   plugins: [
+    `gatsby-plugin-typescript`,
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-google-analytics`,

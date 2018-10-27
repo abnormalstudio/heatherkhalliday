@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import Link from 'gatsby-link'
+import Link from "gatsby-link"
+import styled from "styled-components"
 
 const Aside = styled.div`
   width: 25vw;
@@ -21,7 +21,7 @@ const Aside = styled.div`
 
 const Name = styled.h1`
   font-size: 4rem;
-  font-family: 'Fjalla One', sans-serif;
+  font-family: "Fjalla One", sans-serif;
   text-align: center;
   padding-bottom: 5px;
   color: #212121;
@@ -39,7 +39,7 @@ const Line = styled.hr`
 
 const Lastname = styled.h2`
   font-size: 1.8rem;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   text-align: right;
   padding-right: 20%;
   margin-bottom: 15px;
@@ -56,7 +56,7 @@ const Lastname = styled.h2`
 const Navigation = styled.nav`
   margin-top: 15px;
   font-size: 1rem;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   display: flex;
   justify-content: center;
 
