@@ -1,4 +1,5 @@
 import React from "react"
+import Helmet from "react-helmet"
 import Layout from "../../components/Layout"
 import { ProjectInterface } from "../../declarations"
 import {
@@ -24,6 +25,7 @@ class Project extends React.Component<ProjectProps, {}> {
 
     return (
       <Layout>
+        <Helmet title={project.name} />
         <div>
           <LinkContainer>
             <ProjectLink to={prev}>PREV</ProjectLink>
