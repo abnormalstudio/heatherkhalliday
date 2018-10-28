@@ -20,7 +20,7 @@ const Aside = styled.div`
 `
 
 const Name = styled.h1`
-  font-size: 4rem;
+  font-size: 3.6rem;
   font-family: "Fjalla One", sans-serif;
   text-align: center;
   padding-bottom: 5px;
@@ -41,7 +41,7 @@ const Lastname = styled.h2`
   font-size: 1.8rem;
   font-family: "Roboto", sans-serif;
   text-align: right;
-  padding-right: 1.4rem;
+  padding-right: 20%;
   margin-bottom: 15px;
   color: #212121;
 
