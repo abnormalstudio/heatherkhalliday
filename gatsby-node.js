@@ -13,7 +13,7 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     graphql(`
       {
-        allContentfulProject {
+        allContentfulProject(sort: { order: DESC, fields: createdAt }) {
           edges {
             node {
               id
@@ -39,10 +39,10 @@ exports.createPages = ({ graphql, actions }) => {
 
       projects.forEach(({ node }, i) => {
         const prevProject =
-          i === 0 ? projects[projects.length - 1] : projects[i - 1]
+          i === projects.length - 1 ? projects[0] : projects[i + 1]
 
         const nextProject =
-          i === projects.length - 1 ? projects[0] : projects[i + 1]
+          i === 0 ? projects[projects.length - 1] : projects[i - 1]
 
         createPage({
           path: slugify(node.name),

@@ -16,40 +16,38 @@ interface IndexProps {
   }
 }
 
-const Index = () => {
-  return (
-    <StaticQuery
-      query={graphql`
-        query ProjectsQuery {
-          allContentfulProject {
-            edges {
-              node {
-                id
-                name
-                image {
-                  resolutions(width: 500) {
-                    ...GatsbyContentfulResolutions
-                  }
+const Index = () => (
+  <StaticQuery
+    query={graphql`
+      query ProjectsQuery {
+        allContentfulProject(sort: { order: DESC, fields: createdAt }) {
+          edges {
+            node {
+              id
+              name
+              image {
+                resolutions(width: 500) {
+                  ...GatsbyContentfulResolutions
                 }
-                description {
-                  description
-                }
+              }
+              description {
+                description
               }
             }
           }
         }
-      `}
-      render={(data: IndexProps) => (
-        <Layout>
-          <Grid>
-            {data.allContentfulProject.edges.reverse().map(edge => (
-              <ProjectTile project={edge.node} key={edge.node.id} />
-            ))}
-          </Grid>
-        </Layout>
-      )}
-    />
-  )
-}
+      }
+    `}
+    render={(data: IndexProps) => (
+      <Layout>
+        <Grid>
+          {data.allContentfulProject.edges.map(edge => (
+            <ProjectTile project={edge.node} key={edge.node.id} />
+          ))}
+        </Grid>
+      </Layout>
+    )}
+  />
+)
 
 export default Index

@@ -5,8 +5,8 @@ import Helmet from "react-helmet"
 import SideBar from "../SideBar"
 import { Main, OuterContainer } from "./styles"
 
+import "./generic/_reset.css"
 import "./generic/index.css"
-import "./generic/reset.css"
 
 interface LayoutProps {
   children: React.ReactNode

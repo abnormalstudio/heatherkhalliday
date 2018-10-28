@@ -1,31 +1,56 @@
+import { graphql, StaticQuery } from "gatsby"
 import React from "react"
 import Layout from "../components/Layout"
-import { Container, Heading, Text } from "../styles"
+import { Container, Heading } from "../styles"
+
+interface SnippetInterface {
+  id: string
+  content: { content: string }
+  name: string
+}
+
+interface AboutProps {
+  contentfulSnippet: {
+    id: string
+    name: string
+    content: {
+      id: string
+      childMarkdownRemark: {
+        html: string
+      }
+    }
+  }
+}
 
 const About = () => (
-  <Layout>
-    <Container>
-      <Heading>ABOUT</Heading>
-      <Text>
-        Hot chicken green juice etsy, meh migas 90's dreamcatcher tumblr
-        bitters. Leggings aesthetic umami farm-to-table sriracha plaid. Hammock
-        edison bulb 90's, succulents craft beer chicharrones poutine flannel
-        taiyaki. Actually next level vice cornhole farm-to-table man braid. Yr
-        normcore ethical, plaid food truck shoreditch helvetica kombucha. VHS
-        beard selfies actually man bun shabby chic. Farm-to-table meggings
-        occupy kale chips, yr locavore lyft kogi banh mi hella.
-      </Text>
-      <Text>
-        Hot chicken green juice etsy, meh migas 90's dreamcatcher tumblr
-        bitters. Leggings aesthetic umami farm-to-table sriracha plaid. Hammock
-        edison bulb 90's, succulents craft beer chicharrones poutine flannel
-        taiyaki. Actually next level vice cornhole farm-to-table man braid. Yr
-        normcore ethical, plaid food truck shoreditch helvetica kombucha. VHS
-        beard selfies actually man bun shabby chic. Farm-to-table meggings
-        occupy kale chips, yr locavore lyft kogi banh mi hella.
-      </Text>
-    </Container>
-  </Layout>
+  <StaticQuery
+    query={graphql`
+      query SnippetQuery {
+        contentfulSnippet(id: { eq: "1faa49e1-ec4a-5ade-8ce4-805c5289c567" }) {
+          id
+          name
+          content {
+            id
+            childMarkdownRemark {
+              html
+            }
+          }
+        }
+      }
+    `}
+    render={(data: AboutProps) => (
+      <Layout>
+        <Container>
+          <Heading>{data.contentfulSnippet.name}</Heading>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: data.contentfulSnippet.content.childMarkdownRemark.html
+            }}
+          />
+        </Container>
+      </Layout>
+    )}
+  />
 )
 
 export default About

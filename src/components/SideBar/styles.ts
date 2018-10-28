@@ -41,7 +41,7 @@ const Lastname = styled.h2`
   font-size: 1.8rem;
   font-family: "Roboto", sans-serif;
   text-align: right;
-  padding-right: 20%;
+  padding-right: 1.4rem;
   margin-bottom: 15px;
   color: #212121;
 

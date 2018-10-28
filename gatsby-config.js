@@ -5,7 +5,8 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-typescript`,
-    "gatsby-plugin-react-helmet",
+    `gatsby-transformer-remark`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
