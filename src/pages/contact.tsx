@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/Layout"
-import { CenteredText, Container, Heading, Icon, Redirect } from "./styles"
+import { CenteredText, Container, Heading, Icon, Redirect } from "../styles"
 
 const Contact = () => (
   <Layout>

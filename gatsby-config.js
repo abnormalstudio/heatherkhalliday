@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: "Heather K. Halliday"
+    title: "Heather K. Halliday",
+    siteUrl: "https://www.heatherkhalliday.com"
   },
   plugins: [
     `gatsby-plugin-typescript`,

@@ -1,6 +1,6 @@
 import React from "react"
 import Layout from "../components/Layout"
-import { Container, Heading, Text } from "./styles"
+import { Container, Heading, Text } from "../styles"
 
 const About = () => (
   <Layout>

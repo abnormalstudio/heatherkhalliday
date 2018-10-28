@@ -4,7 +4,7 @@ import React from "react"
 import Layout from "../components/Layout"
 import ProjectTile from "../components/ProjectTile"
 import { ProjectInterface } from "../declarations"
-import { Grid } from "./styles"
+import { Grid } from "../styles"
 
 interface IndexProps {
   allContentfulProject: {
