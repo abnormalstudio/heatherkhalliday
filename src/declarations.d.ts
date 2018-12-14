@@ -7,13 +7,32 @@
 // And to shim assets, use (one file extension per `declare`):
 // declare module "*.png"
 
-export interface ProjectInterface {
+interface ProjectInterface {
   id: string
   description: { description: string }
   name: string
+}
+
+export interface ProjectInterfaceFixed extends ProjectInterface {
   image: {
-    resolutions: {
+    fixed: {
+      base64: string
+      width: number
+      height: number
       src: string
+      srcSet: string
+    }
+  }
+}
+
+export interface ProjectInterfaceFluid extends ProjectInterface {
+  image: {
+    fluid: {
+      base64: string
+      aspectRatio: number
+      src: string
+      srcSet: string
+      sizes: string
     }
   }
 }

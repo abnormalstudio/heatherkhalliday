@@ -1,20 +1,21 @@
 import React from "react"
 import Helmet from "react-helmet"
 import Layout from "../../components/Layout"
-import { ProjectInterface } from "../../declarations"
+import { ProjectInterfaceFluid } from "../../declarations"
 import {
   Description,
   LinkContainer,
   ProjectImage,
+  ProjectImageContainer,
   ProjectLink,
   ProjectTitle
 } from "./styles"
 
 interface ProjectProps {
   pathContext: {
-    prev: string
-    next: string
-    project: ProjectInterface
+    prev: string | null
+    next: string | null
+    project: ProjectInterfaceFluid
   }
 }
 
@@ -28,13 +29,16 @@ class Project extends React.Component<ProjectProps, {}> {
         <Helmet title={project.name} />
         <div>
           <LinkContainer>
-            <ProjectLink to={prev}>PREV</ProjectLink>
-            <ProjectLink to={next}>NEXT</ProjectLink>
+            {prev && <ProjectLink to={prev}>PREV</ProjectLink>}
+            {next && <ProjectLink to={next}>NEXT</ProjectLink>}
           </LinkContainer>
 
-          <ProjectImage src={project.image.resolutions.src} />
-
           <ProjectTitle>{project.name}</ProjectTitle>
+
+          <ProjectImageContainer>
+            <ProjectImage fluid={project.image.fluid} />
+          </ProjectImageContainer>
+
           {paras.map((para, i) => (
             <Description key={i}>{para}</Description>
           ))}

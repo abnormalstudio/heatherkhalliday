@@ -10,21 +10,29 @@ const slugify = str => {
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve, _) => {
     graphql(`
       {
         allContentfulProject(sort: { order: DESC, fields: createdAt }) {
           edges {
+            next {
+              id
+              name
+            }
+            previous {
+              id
+              name
+            }
             node {
               id
               name
               image {
-                resolutions(width: 1200) {
+                fluid(maxWidth: 1200) {
                   base64
-                  width
-                  height
+                  aspectRatio
                   src
                   srcSet
+                  sizes
                 }
               }
               description {
@@ -37,20 +45,14 @@ exports.createPages = ({ graphql, actions }) => {
     `).then(result => {
       const projects = result.data.allContentfulProject.edges
 
-      projects.forEach(({ node }, i) => {
-        const prevProject =
-          i === projects.length - 1 ? projects[0] : projects[i + 1]
-
-        const nextProject =
-          i === 0 ? projects[projects.length - 1] : projects[i - 1]
-
+      projects.forEach(({ next, previous, node }) => {
         createPage({
           path: slugify(node.name),
           component: path.resolve("./src/templates/Project/index.tsx"),
           context: {
             project: node,
-            next: slugify(nextProject.node.name),
-            prev: slugify(prevProject.node.name)
+            next: next ? slugify(next.name) : null,
+            prev: previous ? slugify(previous.name) : null
           }
         })
       })

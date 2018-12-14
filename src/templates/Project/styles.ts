@@ -1,3 +1,4 @@
+import Image from "gatsby-image"
 import Link from "gatsby-link"
 import styled from "styled-components"
 
@@ -10,13 +11,15 @@ const LinkContainer = styled.div`
   }
 `
 
-const ProjectImage = styled.img`
+const ProjectImage = styled(Image)``
+
+const ProjectImageContainer = styled.div`
   max-width: 80%;
-  max-height: 65vh;
   display: block;
   margin: 50px auto;
   margin-bottom: 70px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  position: relative;
 
   @media (max-width: 1024px) {
     margin: 25px auto;
@@ -58,4 +61,11 @@ const ProjectLink = styled(Link)`
   }
 `
 
-export { LinkContainer, ProjectImage, ProjectTitle, Description, ProjectLink }
+export {
+  Description,
+  LinkContainer,
+  ProjectImage,
+  ProjectImageContainer,
+  ProjectLink,
+  ProjectTitle
+}

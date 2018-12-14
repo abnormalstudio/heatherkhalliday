@@ -3,14 +3,14 @@ import React from "react"
 
 import Layout from "../components/Layout"
 import ProjectTile from "../components/ProjectTile"
-import { ProjectInterface } from "../declarations"
+import { ProjectInterfaceFixed } from "../declarations"
 import { Grid } from "../styles"
 
 interface IndexProps {
   allContentfulProject: {
     edges: [
       {
-        node: ProjectInterface
+        node: ProjectInterfaceFixed
       }
     ]
   }
@@ -26,8 +26,8 @@ const Index = () => (
               id
               name
               image {
-                resolutions(width: 500) {
-                  ...GatsbyContentfulResolutions
+                fixed(width: 500) {
+                  ...GatsbyContentfulFixed
                 }
               }
               description {
