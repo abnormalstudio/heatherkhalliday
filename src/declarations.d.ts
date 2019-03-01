@@ -8,7 +8,6 @@
 // declare module "*.png"
 
 declare module "react-reveal"
-declare module "react-markdown"
 
 interface ProjectInterface {
   id: string
