@@ -13,9 +13,6 @@ const Item = styled.div`
   }
 `
 
-const ItemImage = styled(Img)`
-  max-width: 100%;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-`
+const ItemImage = styled(Img)``
 
 export { Item, ItemImage }

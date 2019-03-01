@@ -36,7 +36,10 @@ exports.createPages = ({ graphql, actions }) => {
                 }
               }
               description {
-                description
+                id
+                childMarkdownRemark {
+                  html
+                }
               }
             }
           }

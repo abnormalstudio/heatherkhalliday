@@ -3,14 +3,14 @@ import React from "react"
 
 import Layout from "../components/Layout"
 import ProjectTile from "../components/ProjectTile"
-import { ProjectInterfaceFixed } from "../declarations"
+import { ProjectInterfaceFluid } from "../declarations"
 import { Grid } from "../styles"
 
 interface IndexProps {
   allContentfulProject: {
     edges: [
       {
-        node: ProjectInterfaceFixed
+        node: ProjectInterfaceFluid
       }
     ]
   }
@@ -26,12 +26,9 @@ const Index = () => (
               id
               name
               image {
-                fixed(width: 500) {
-                  ...GatsbyContentfulFixed
+                fluid(maxWidth: 500) {
+                  ...GatsbyContentfulFluid
                 }
-              }
-              description {
-                description
               }
             }
           }

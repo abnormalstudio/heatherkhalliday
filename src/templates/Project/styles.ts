@@ -33,19 +33,6 @@ const ProjectTitle = styled.h1`
   text-align: center;
 `
 
-const Description = styled.p`
-  font-size: 1.3rem;
-  font-family: "Roboto", sans-serif;
-  line-height: 2.8rem;
-  padding: 0 10%;
-  margin: 50px;
-
-  @media (max-width: 1024px) {
-    padding: 0 5%;
-    margin: 50px 10px;
-  }
-`
-
 const ProjectLink = styled(Link)`
   text-decoration: none;
   font-family: "Roboto", sans-serif;
@@ -58,6 +45,12 @@ const ProjectLink = styled(Link)`
   &:hover {
     background-color: #212121;
     color: #fff;
+  }
+`
+
+const Description = styled.div`
+  p {
+    padding: 0 5%;
   }
 `
 

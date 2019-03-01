@@ -22,7 +22,6 @@ interface ProjectProps {
 class Project extends React.Component<ProjectProps, {}> {
   render() {
     const { project, next, prev } = this.props.pathContext
-    const paras = project.description.description.split("\n")
 
     return (
       <Layout>
@@ -39,9 +38,11 @@ class Project extends React.Component<ProjectProps, {}> {
             <ProjectImage fluid={project.image.fluid} />
           </ProjectImageContainer>
 
-          {paras.map((para, i) => (
-            <Description key={i}>{para}</Description>
-          ))}
+          <Description
+            dangerouslySetInnerHTML={{
+              __html: project.description.childMarkdownRemark.html
+            }}
+          />
         </div>
       </Layout>
     )

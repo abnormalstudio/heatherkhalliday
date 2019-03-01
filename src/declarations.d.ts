@@ -7,22 +7,18 @@
 // And to shim assets, use (one file extension per `declare`):
 // declare module "*.png"
 
+declare module "react-reveal"
+declare module "react-markdown"
+
 interface ProjectInterface {
   id: string
-  description: { description: string }
-  name: string
-}
-
-export interface ProjectInterfaceFixed extends ProjectInterface {
-  image: {
-    fixed: {
-      base64: string
-      width: number
-      height: number
-      src: string
-      srcSet: string
+  description: {
+    id: string
+    childMarkdownRemark: {
+      html: string
     }
   }
+  name: string
 }
 
 export interface ProjectInterfaceFluid extends ProjectInterface {
@@ -35,11 +31,4 @@ export interface ProjectInterfaceFluid extends ProjectInterface {
       sizes: string
     }
   }
-}
-
-declare module "react-reveal" {
-  interface ExportInterface {
-    Zoom: any
-  }
-  export = ExportInterface
 }
