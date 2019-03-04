@@ -27,7 +27,7 @@ exports.createPages = ({ graphql, actions }) => {
               id
               name
               image {
-                fluid(maxWidth: 1200) {
+                fluid(maxWidth: 1600) {
                   base64
                   aspectRatio
                   src
