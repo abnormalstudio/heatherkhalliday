@@ -26,7 +26,7 @@ const Index = () => (
               id
               name
               image {
-                fluid(maxWidth: 500) {
+                fluid(maxWidth: 400) {
                   ...GatsbyContentfulFluid
                 }
               }
