@@ -2,6 +2,7 @@ const path = require("path")
 
 const slugify = str => {
   return str
+    .trim()
     .replace(/\s+/g, "-")
     .toLowerCase()
     .replace(/[^a-z-]/g, "")
